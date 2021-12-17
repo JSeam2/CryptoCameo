@@ -174,9 +174,6 @@ contract CryptoCameo is ReentrancyGuard {
             _cameo[_agreement[agreementId].seller].reputation--;
         }
 
-        (bool sent,) = msg.sender.call{value: _agreement[agreementId].price}("");
-        require(sent, "Refund failed");
-
         emit Review (
             agreementId, 
             _agreement[agreementId].seller,
